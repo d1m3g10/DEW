@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es-es">
+    <head>
+        <meta charset="utf-8">
+        <title>Adicionales</title>
+        <script>
+            function check(form){
+                var black = '#000000';
+                var DarkStateBlue = '#483D8B';
+                var DarkRed = '#8B0000';
+
+                var White = '#FFFFFF';
+                var Grey1 = '#E0E0E0';  
+                var Grey2 = '#A0A0A0';
+
+                var cadena = form.t.value;
+                var span = document.getElementById('aqui');
+                span.innerHTML = cadena;
+                switch (form.ct.value){
+                    case "black" : span.style.color = black;
+                            break;
+                    case "DarkStateBlue" : span.style.color = DarkStateBlue
+                            break;
+                    case "DarkRed": span.style.color = DarkRed
+                            break;
+                }
+                switch (form.cf.value){
+                    case "white" :  span.style.backgroundColor = White;
+                            break;
+                    case "grey1" :  span.style.backgroundColor = Grey1;
+                            break;
+                    case "grey2" :  span.style.backgroundColor = Grey2;
+                            break;
+                }
+                return false;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Dimegio</h1>
+        <form action="http://a.b.c/d" method="post" onsubmit="return check(this);">
+            Texto: <input type="text" name="t"><br>
+            Color texto: 
+            <select name="ct">
+                <option value="black">Black</option>
+                <option value="DarkStateBlue">DarkStateBlue</option>
+                <option value="DarkRed">DarkRed</option>
+            </select>
+            <br>
+            Color fondo:
+            <select name="cf">
+                <option value="white">White</option>
+                <option value="grey1">Grey1</option>
+                <option value="grey2">Grey2</option> 
+            </select>
+            <br>
+            <input type="submit" value="Pintar" name=" boton">
+            <br> 
+            <br>
+            Visualizando:<span id="aqui"></span>
+        </form>
+    </body>
+</html>
