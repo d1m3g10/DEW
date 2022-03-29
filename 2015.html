@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+    <script>
+        function checkFields(f){
+            if(f.seleccionado.value == ""){
+                alert("Tienes que seleccionar una opción válida")
+            }else{
+                f.texto.value = f.seleccionado.value;
+            }
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <h1>Formulario</h1>
+    <form action="http://a.b.c/hacer" method="method" onsubmit="return checkFields(this);">
+        <p>
+            escrito <input type="text" name="texto">
+        </p>
+        <p>
+            seleccionado
+            <select size="4" name="seleccionado">
+                <option value="uno">uno</option>
+                <option value="dos">dos</option>
+                <option value="tres">tres</option>
+                <option value="cuatro">cuatro</option>
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="Enviar">
+        </p>
+    </form>
+</body>
+</html>
