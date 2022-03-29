@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es-es" > 
+    <head>
+        <meta charset="utf-8"/>
+        <title> 2021 </title>
+        <link href="hoja.css" rel="stylesheet" type="text/css">
+        <script>
+            function rellena_p2(){
+                document.getElementsByTagName('p')[1].innerHTML="Hoy es " +new Date();
+            }
+
+            function hazMagia(f){
+                var N = parseInt(f.N.value)
+                if ((N<1) || (N>4)){
+                    alert("El valor de N no es válido, tiene que ser entre 1 y 4");
+                }else{
+                    var L = document.getElementsByTagName('li');
+                    L[N-1].innerHTML = f.texto.value;
+                    if(document.getElementsByTagName('h1')[0].innerHTML == f.texto.value){
+                        document.getElementsByTagName('p')[1].style.backgroundColor = "brown";
+                    }
+                }
+                return false;
+            }
+        </script>
+    </head>
+    <body onload="return rellena_p2();">
+        <h1>Dimitar</h1>
+        <p>
+            Normalmente aquí vendrían instrucciones, pero ya las tienes en el enunciado y... ¡no se me ocurre añadir nada más!
+        </p>
+        <p id="hora">
+            
+        </p>
+        <ol>
+            <li>Primero</li>
+            <li>Segundo</li>
+            <li>Tercero</li>
+            <li>Cuarto</li>
+        </ol>
+        <form onsubmit="return hazMagia(this);">
+            <p>
+                N <input type="number" name="N" required="required"> Texto <input type="text" name="texto" placeholder="Dimitar" required="required">
+            </p>
+            <p>
+                <input type="submit" value="Hacer">
+            </p>
+        </form>
+    </body>
+</html>
