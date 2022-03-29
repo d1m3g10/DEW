@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="es-es"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	
+	<title>DEW2021, 31 de marzo. White Black, Joe</title>
+	<link rel="stylesheet" type="text/css" href="ejercicio_files/css/ejercicio.css"> 
+	<script>
+	function CARGAR(f){
+		x = document.getElementById("lastDigit").src 
+		var datos = document.getElementById("fila")
+		var numero = parseInt(datos.innerText.charAt(datos.innerText.length - 1 ))
+		switch(numero) {
+			case 0 : document.getElementById("lastDigit").src = "ejercicio_files/img/0.png"; break;
+			case 1 : document.getElementById("lastDigit").src = "ejercicio_files/img/1.png"; break;
+			case 2 : document.getElementById("lastDigit").src = "ejercicio_files/img/2.png"; break;
+			case 3 : document.getElementById("lastDigit").src = "ejercicio_files/img/3.png"; break;
+			case 4 : document.getElementById("lastDigit").src = "ejercicio_files/img/4.png"; break;
+			case 5 : document.getElementById("lastDigit").src = "ejercicio_files/img/5.png"; break;
+			case 6 : document.getElementById("lastDigit").src = "ejercicio_files/img/6.png"; break;
+			case 7 : document.getElementById("lastDigit").src = "ejercicio_files/img/7.png"; break;
+			case 8 : document.getElementById("lastDigit").src = "ejercicio_files/img/8.png"; break;
+			case 9 : document.getElementById("lastDigit").src = "ejercicio_files/img/9.png"; break;
+
+			default: document.getElementById("lastDigit").src = "ejercicio_files/img/error.png"; break;
+			 
+		}	
+		
+	}
+	function yo(f){
+		f.doc.value = this.window.location
+		return true;
+	}
+	</script>
+</head>
+<body onload="CARGAR()" >
+	<h1>DEW2021, 31 de marzo. White Black, Joe</h1>
+	<h2>Instrucciones</h2>
+	<p>Debes modificar esta página para incluir...</p>
+	<table>
+	<tbody><tr><td>
+	  <ul class="destacar" ><li class="lilo">Tus apellidos y nombre tanto en el título como en el <code>&lt;h1&gt;</code> anterior (en este ejemplo <code>Apellidos, Nombre</code>)</li>
+	    <li class="lilo"   id="fila" >Tu DNI sin letra (ó NIE): 50327086</li>
+	    <li class="lilo">A la derecha pondrás, con JavaScript, la última cifra</li>
+	  </ul></td>
+	  <td>
+	    <img id="lastDigit"  alt="ultima" style="height:50px;" src="ejercicio_files/img/error.png" >
+	  </td>
+	</tr></tbody></table>
+	<p>Aquí debes añadir un formulario con los siguientes detalles:</p>
+	<ul><li>Invoca por GET a <code>http://memex.dsic.upv.es:8080/vnu/</code></li>
+	    <li>Para el evento <code>submit</code> ejecuta una función <code>yo()</code> que coloca el valor de <code>window.location</code> en la variable de formulario <code>doc</code></li>
+	    <li>En el resto del formulario aparece lo siguiente...<pre>  &lt;input type="hidden" name="useragent" value="Validator.nu" /&gt;
+  &lt;input type="hidden" name="acceptlanguage" value="" /&gt;
+  &lt;input type="hidden" name="showsource" value="yes" /&gt;
+  &lt;input type="hidden" name="doc" /&gt;
+  &lt;input type="submit" value="Validar" /&gt;
+	    </pre></li>
+	    <li>Al pulsar en el botón <code>Validar</code> debe invocarse el CGI de <code>action</code> devolviendo el diagnóstico correspondiente a esta página que estás construyendo.</li>
+	</ul>
+	
+	<form action="http://memex.dsic.upv.es:8080/vnu/" method="get" onsubmit = "return yo(this);">
+		<input type="hidden" name="useragent" value="Validator.nu" />
+  		<input type="hidden" name="acceptlanguage" value="" />
+  		<input type="hidden" name="showsource" value="yes" />
+  		<input type="hidden" name="doc" />
+  		<input type="submit" value="Validar" />
+   
+    </form>
+    <h2>Sobre el código JavaScript</h2>
+    <p>Una función <code>yo()</code>, que se ha descrito antes, y la inserción del dígito. No es demasiado complicado.</p>
+    <h2>Sobre el estilo</h2>
+    <p>Coloca en una hoja de estilo (<code>estilo.css</code>) externa todas las modificaciones referentes a los elementos de la clase <code>destacar</code> y el borde de la imagen.</p>
+    <h2>Haz una captura e insértala (con ancho 500)</h2>
+    <p>El formulario envía la <em>dirección</em> de la página al validador. Haz una captura e inserta la imagen en la propia página.<br>Tendrás que ...</p>
+    <ul><li>...publicarla sin imagen, </li><li>...validarla, </li><li>...capturar el diagnóstico, </li><li>...insertar la captura</li><li>...y volver a publicarla.</li></ul>
+	<p>Debes hacer la captura en el propio navegador (mira en la carpeta <code>Descargas</code>), y referenciar el archivo con una orden <code>img</code>. ¡No olvides incluirlo!</p>
+	<p><img src="final.png" alt="captura" width="500"></p>
+	
+
+</body></html>
