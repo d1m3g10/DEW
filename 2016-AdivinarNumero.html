@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adivina</title>
+    <script type="text/javascript">
+        var intentos = 0;
+        function resultado(f){
+            var num = 20;
+            if(f.numero.value == num ){
+                intentos++;
+                alert("Enhorabuena has adivinado el número con: " +intentos+ " intentos");
+                intentos = 0;
+                f.texto.value = ""
+                f.numero.value = ""
+            }else{
+                intentos++;
+                if( f.numero.value < num){
+                    f.texto.value = "No llegas:" + intentos + " intentos";
+                }else{
+                    f.texto.value = "Te pasas: " + intentos + " intentos";
+                }
+            }
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <h1>Adivina el número</h1>
+    <form action="http://a.b.c/hacer" method="post" onsubmit="return resultado(this);">
+        <input type="text" placeholder="Esperando..." name="texto"><br>
+        <input type="number" name="numero" required="required"><br>
+        <input type="submit" value="Comprobar">
+    </form>
+</body>
+</html>
